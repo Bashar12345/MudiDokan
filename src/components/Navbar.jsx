@@ -12,12 +12,12 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Products', 'Pricing', 'Blog','Hot Items','Flash Sell'];
 
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
- 
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -35,21 +35,17 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" sx={{ px: 1 }}>
+    <AppBar position="static" sx={{
+      px: 1, backgroundColor: '#9c27b0',
+      display: { xs: "none", md: "block" }
+    }}>
+
+
 
       <Toolbar disableGutters>
 
 
-        <IconButton
-          size="large"
-          edge="start"
-          color="secondary"
-          aria-label="open drawer"
-          sx={{ mr: 2 }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+        <Box sx={{ flexGrow: 1, display: 'flex' }}>
           <IconButton
             size="large"
             aria-label="account of current user"
@@ -107,7 +103,7 @@ function Navbar() {
             <Button
               key={page}
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
+              sx={{ fontSize:"large",color: 'inherit', display: 'block',  textTransform: 'capitalize' }} 
             >
               {page}
             </Button>

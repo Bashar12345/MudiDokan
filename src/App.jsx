@@ -6,28 +6,23 @@ import Navbar from './components/Navbar'
 import Header from './components/Header'
 import { Container } from '@mui/material'
 import SearchAppBar from './components/SearchBar'
+import HeroBanner from './components/HeroBanner'
+import Features from './components/Features'
+import Footer from './components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Container maxWidth='xl'>
-      <Header />
-      <SearchAppBar/>
-      <Navbar/>
-      <h1>Mudi dookan</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Container maxWidth='xl'>
+        <Header />
+        <SearchAppBar />
+        <Navbar />
+        <HeroBanner />
+       
+        <Features />
+        <Footer/>
       </Container>
     </>
   )

@@ -73,9 +73,12 @@ export default function SearchAppBar() {
     };
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}>
-                <Toolbar>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,color:"red" }} />
+            <AppBar position="static" sx={{
+                backgroundColor: 'transparent',
+                boxShadow: 'none', padding: 0
+            }}>
+                <Toolbar sx={{ padding: 0 }}>
+                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: '#9c27b0' }} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -83,34 +86,30 @@ export default function SearchAppBar() {
                         href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: { xs: 'block', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'Secondary',
+                            letterSpacing: '.2rem',
+                            color: 'secondary.main',
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        MudiDokan
                     </Typography>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        color="secondary" // Use secondary color for the text
-                        sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
-                    >
-                        MUI
-                    </Typography>
+
                     <Search sx={{ mx: 'auto' }}>
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
-                            placeholder="Search…"
+                            placeholder="What are you looking for...."
                             inputProps={{ 'aria-label': 'search' }}
                         />
-                        <Button variant="contained" color="secondary" sx={{ ml: 1 }}>
-                            Search
+                        <Button variant="contained" color="secondary" >
+                            <Typography sx={{ ml: 0, p: 0.8, textTransform: 'capitalize' }}>
+                                Search
+                            </Typography>
+
                         </Button>
                     </Search>
                     <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
@@ -123,7 +122,7 @@ export default function SearchAppBar() {
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    <Avatar alt="Remy Sharp" />
                                 </IconButton>
                             </Tooltip>
                             <Menu
