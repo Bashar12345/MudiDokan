@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+// import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,13 +17,15 @@ import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useTheme, styled, alpha } from '@mui/material/styles';
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.secondary.main, 0.15),
+    backgroundColor: alpha(theme.palette.primary.main, 0.15),
     '&:hover': {
-        backgroundColor: alpha(theme.palette.secondary.main, 0.25),
+        backgroundColor: alpha(theme.palette.primary.main, 0.25),
     },
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(3),
@@ -43,11 +45,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: theme.palette.secondary.main, // Use secondary color for the icon
+    color: theme.palette.primary.main, // Use secondary color for the icon
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: theme.palette.secondary.main, // Use secondary color for input text
+    color: theme.palette.primary.main, // Use secondary color for input text
     width: '100%',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
@@ -58,6 +60,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+    const theme = useTheme();
+
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
     const handleOpenUserMenu = (event) => {
@@ -78,7 +82,7 @@ export default function SearchAppBar() {
                 boxShadow: 'none', padding: 0
             }}>
                 <Toolbar sx={{ padding: 0 }}>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: '#9c27b0' }} />
+                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'primary.main' }} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -90,7 +94,7 @@ export default function SearchAppBar() {
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.2rem',
-                            color: 'secondary.main',
+                            color: 'primary.main',
                             textDecoration: 'none',
                         }}
                     >
@@ -105,7 +109,7 @@ export default function SearchAppBar() {
                             placeholder="What are you looking for...."
                             inputProps={{ 'aria-label': 'search' }}
                         />
-                        <Button variant="contained" color="secondary" >
+                        <Button variant="contained" color="primary" >
                             <Typography sx={{ ml: 0, p: 0.8, textTransform: 'capitalize' }}>
                                 Search
                             </Typography>
@@ -113,16 +117,17 @@ export default function SearchAppBar() {
                         </Button>
                     </Search>
                     <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
-                        <IconButton size="large" color="secondary">
+                        <IconButton size="large" color="primary">
                             <ShoppingCartIcon />
                         </IconButton>
-                        <IconButton size="large" color="secondary">
+                        <IconButton size="large" color="primary">
                             <FavoriteIcon />
                         </IconButton>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
                                     <Avatar alt="Remy Sharp" />
+
                                 </IconButton>
                             </Tooltip>
                             <Menu

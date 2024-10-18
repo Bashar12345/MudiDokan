@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useTheme } from '@mui/material/styles';
 
 import Button from '@mui/material/Button';
 
@@ -17,6 +18,7 @@ const pages = ['Products', 'Pricing', 'Blog','Hot Items','Flash Sell'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const theme = useTheme();
 
 
   const handleOpenNavMenu = (event) => {
@@ -36,7 +38,7 @@ function Navbar() {
 
   return (
     <AppBar position="static" sx={{
-      px: 1, backgroundColor: '#9c27b0',
+      px: 1, 
       display: { xs: "none", md: "block" }
     }}>
 

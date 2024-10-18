@@ -126,7 +126,7 @@ function Footer() {
                     <Typography variant="h6" sx={{ textTransform: 'uppercase', mt: 4, mb: 3 }}>
                         Follow Us
                     </Typography>
-                    <Box sx={{ display: 'flex', gap: 2 }}>
+                    <Box sx={{ display: 'flex', gap: 2, color:"primary.main" }}>
                         {[
                             { icon: <Facebook />, href: '#' },
                             { icon: <Twitter />, href: '#' },

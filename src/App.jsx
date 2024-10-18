@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme/index'; // Import your custom theme
 import Navbar from './components/Navbar'
 import Header from './components/Header'
 import { Container } from '@mui/material'
@@ -14,17 +13,18 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+
+    <ThemeProvider theme={theme}>
       <Container maxWidth='xl'>
         <Header />
         <SearchAppBar />
         <Navbar />
         <HeroBanner />
-       
         <Features />
-        <Footer/>
+        <Footer />
       </Container>
-    </>
+    </ThemeProvider>
+
   )
 }
 
