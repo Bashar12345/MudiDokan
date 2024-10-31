@@ -76,7 +76,7 @@ export default function SearchAppBar() {
         setAnchorElUser(null);
     };
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, marginBlock: 1 }}>
             <AppBar position="static" sx={{
                 backgroundColor: 'transparent',
                 boxShadow: 'none', padding: 0
@@ -84,13 +84,13 @@ export default function SearchAppBar() {
                 <Toolbar sx={{ padding: 0 }}>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'primary.main' }} />
                     <Typography
-                        variant="h6"
+                        variant="h5"
                         noWrap
                         component="a"
                         href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
-                            display: { xs: 'block', md: 'flex' },
+                            display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.2rem',
@@ -101,13 +101,13 @@ export default function SearchAppBar() {
                         MudiDokan
                     </Typography>
 
-                    <Search sx={{ mx: 'auto' }}>
+                    <Search sx={{ mx: 'auto', borderRadius: '8px', }}>
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="What are you looking for...."
-                            inputProps={{ 'aria-label': 'search' }}
+                            inputProps={{ 'aria-label': 'search'}}
                         />
                         <Button variant="contained" color="primary" >
                             <Typography sx={{ ml: 0, p: 0.8, textTransform: 'capitalize' }}>
@@ -116,14 +116,17 @@ export default function SearchAppBar() {
 
                         </Button>
                     </Search>
-                    <Box sx={{ display: 'flex', alignItems: 'center', ml: 'auto' }}>
+                    <Box sx={{
+                        display: { xs: "none", md: "flex" },
+                        alignItems: 'center', ml: 'auto'
+                    }}>
                         <IconButton size="large" color="primary">
                             <ShoppingCartIcon />
                         </IconButton>
                         <IconButton size="large" color="primary">
                             <FavoriteIcon />
                         </IconButton>
-                        <Box sx={{ flexGrow: 0 }}>
+                        <Box sx={{ flexGrow: 0, display: { xs: "none", md: "block" } }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} >
                                     <Avatar alt="Remy Sharp" />

@@ -6,6 +6,7 @@ const HeroBanner = () => {
     return (
         <Box
             sx={{
+                my: 1,
                 py: 5,
                 // backgroundColor: 'primary.main',
                 backgroundImage: `url(${Banner})`,

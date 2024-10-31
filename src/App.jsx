@@ -8,6 +8,7 @@ import SearchAppBar from './components/SearchBar'
 import HeroBanner from './components/HeroBanner'
 import Features from './components/Features'
 import Footer from './components/Footer'
+import ProductBody from './pages/products';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
         <SearchAppBar />
         <Navbar />
         <HeroBanner />
+        <ProductBody/>
         <Features />
         <Footer />
       </Container>
