@@ -24,7 +24,7 @@ const Header = () => {
                             |
                         </Typography>
                         <Link href="#" color="inherit" underline="none" sx={{ display: 'flex', alignItems: 'center', px: 2 }}>
-                            <EmailIcon sx={{ pr: 0.5 }} /> mail@domain.com
+                            <EmailIcon sx={{ pr: 0.5 }} /> techgenz365@gamil.com
                         </Link>
                     </Grid>
                     <Grid size={{ xs: 12, md: 6 }} sx={{ display: { xs: "none", md: "flex" }, textAlign: { xs: 'left', md: 'right' }, justifyContent: "flex-end" }}>

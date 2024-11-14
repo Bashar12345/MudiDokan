@@ -21,7 +21,7 @@ function Footer() {
     return (
         <Box>
 
-            <Box sx={{ }}>
+            <Box sx={{ display: {xs: 'block', sm:'none' } }}>
                 <BottomNavigation
                     showLabels
                     value={value}

@@ -7,18 +7,33 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTheme } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
 
 import MenuItem from '@mui/material/MenuItem';
 
 
-const pages = ['Products', 'Pricing', 'Blog','Hot Items','Flash Sell'];
+
+const pages = [
+
+  { name: 'Products', path: '/products' },
+
+  { name: 'Pricing', path: '/pricing' },
+
+  { name: 'Blog', path: '/blog' },
+
+  { name: 'Hot Items', path: '/hot-items' },
+
+  { name: 'Flash Sell', path: '/flash-sell' }
+
+];
 
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const theme = useTheme();
+  const navigate = useNavigate();
 
 
   const handleOpenNavMenu = (event) => {
@@ -36,9 +51,17 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
+  const handleNavigate = (path) => {
+
+    navigate(path);
+
+    handleCloseNavMenu(); // Close menu after navigating
+
+  };
+
   return (
     <AppBar position="static" sx={{
-      px: 1, 
+      px: 1,
       display: { xs: "none", md: "block" }
     }}>
 
@@ -75,8 +98,9 @@ function Navbar() {
             sx={{ display: { xs: 'block', md: 'none' } }}
           >
             {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+              <MenuItem key={page.name} onClick={() => handleNavigate(page.path)}>
+
+                <Typography sx={{ textAlign: 'center' }}>{page.name}</Typography>
               </MenuItem>
             ))}
           </Menu>
@@ -86,7 +110,7 @@ function Navbar() {
           variant="h5"
           noWrap
           component="a"
-          href="#app-bar-with-responsive-menu"
+          href="/"
           sx={{
             mr: 2,
             display: { xs: 'flex', md: 'none' },
@@ -101,13 +125,14 @@ function Navbar() {
           LOGO
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          {pages.map((page) => (
+          {pages.map((page,index) => (
             <Button
-              key={page}
-              onClick={handleCloseNavMenu}
-              sx={{ fontSize:"large",color: 'inherit', display: 'block',  textTransform: 'capitalize' }} 
+              key={page.name}
+              onClick={() => handleNavigate(page.path)}
+              
+              sx={{ fontSize: "large", color: 'inherit', display: 'block', textTransform: 'capitalize' }}
             >
-              {page}
+             {page.name}
             </Button>
           ))}
         </Box>
