@@ -1,12 +1,13 @@
 import { Box } from '@mui/material';
 import React from 'react'
-import ProductGrid from '../components/product/ProductGrid';
+import ProductDetails from '../components/product/productDetails';
 
 const ProductBody = () => {
   return (
-    <Box>ProductBody
-
-        <ProductGrid/>
+    <Box>
+      {/* ProductBody */}
+      <ProductDetails/>
+        {/* <ProductGrid/> */}
     </Box>
   )
 }
